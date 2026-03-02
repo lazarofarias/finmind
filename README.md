@@ -1,4 +1,4 @@
-# FinMind 🧠💰
+# FinMind
 
 **Ecossistema de controle financeiro pessoal com Inteligência Artificial**
 
@@ -6,22 +6,22 @@
 
 ---
 
-## 🚀 Demo
+## Demo
 
 Acesse `http://localhost:3000` → clique em **"Explorar o demo sem login →"** para ver o dashboard com dados fictícios sem precisar configurar nada.
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 | Módulo | Status |
 |--------|--------|
-| 🔐 Autenticação (login/registro/logout) | ✅ |
-| 📊 Dashboard com fluxo de caixa | ✅ |
-| 📄 Ingestão de PDF (Nubank, Itaú, Inter...) | ✅ |
-| 🤖 Mentor IA (anomalias, score, projeções) | ✅ |
-| 💼 Contas, Transações, Investimentos | ✅ |
-| 📱 Mobile-first (PWA ready) | ✅ |
+| Autenticação (login/registro/logout)
+| Dashboard com fluxo de caixa
+| Ingestão de PDF (Nubank, Itaú, Inter...)
+| Mentor IA (anomalias, score, projeções)
+| Contas, Transações, Investimentos
+| Mobile-first (PWA ready)
 
 ---
 
@@ -73,7 +73,7 @@ Acesse [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🤖 Edge Functions (Supabase)
+## Edge Functions (Supabase)
 
 Deploy das funções:
 
@@ -89,7 +89,7 @@ Variáveis de ambiente nas Edge Functions (Supabase Dashboard → Settings → E
 
 ---
 
-## 📁 Estrutura
+## Estrutura
 
 ```
 finmind/
@@ -111,6 +111,6 @@ finmind/
 
 ---
 
-## 📄 Licença
+## Licença
 
 MIT © [Lázaro Farias](https://github.com/lazarofarias)
