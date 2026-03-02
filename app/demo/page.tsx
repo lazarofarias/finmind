@@ -11,20 +11,20 @@ export const metadata: Metadata = { title: 'Demo – FinMind' }
 
 // ─── Mock data with correct prop types ───────────────────────
 const MOCK_TOTALS = {
-    income: 8500,
-    fixed: 3200,
-    variable: 1850,
-    balance: 3450,
-    available: 3450,
+    income: 14500,
+    fixed: 4200,
+    variable: 2800,
+    balance: 7500,
+    available: 10300
 }
 
 const MOCK_CHART = [
-    { label: 'Out', income: 7200, expenses: 4800 },
-    { label: 'Nov', income: 8100, expenses: 5200 },
-    { label: 'Dez', income: 9500, expenses: 6100 },
-    { label: 'Jan', income: 7800, expenses: 4900 },
-    { label: 'Fev', income: 8200, expenses: 5400 },
-    { label: 'Mar', income: 8500, expenses: 5050 },
+    { label: 'Set', income: 12000, expenses: 6500, month: '2023-09' },
+    { label: 'Out', income: 12500, expenses: 7200, month: '2023-10' },
+    { label: 'Nov', income: 14000, expenses: 6800, month: '2023-11' },
+    { label: 'Dez', income: 22000, expenses: 14000, month: '2023-12' },
+    { label: 'Jan', income: 14500, expenses: 8500, month: '2024-01' },
+    { label: 'Fev', income: 14500, expenses: 7000, month: '2024-02' }
 ]
 
 const MOCK_UPCOMING = [
@@ -81,8 +81,8 @@ export default function DemoPage() {
                     {navItems.map(({ href, label, icon: Icon, active }) => (
                         <a key={label} href={href}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${active
-                                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                                    : 'text-slate-400 hover:text-slate-50 hover:bg-slate-800'
+                                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                                : 'text-slate-400 hover:text-slate-50 hover:bg-slate-800'
                                 }`}>
                             <Icon className={`w-5 h-5 shrink-0 ${active ? 'text-emerald-400' : 'text-slate-500'}`} />
                             {label}

@@ -71,3 +71,62 @@ export async function getDashboardData() {
 }
 
 export type DashboardData = NonNullable<Awaited<ReturnType<typeof getDashboardData>>>
+
+export async function updateTransaction(id: string, data: Partial<Omit<TransactionInsert, 'id' | 'user_id'>>) {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { error: 'Não autenticado' }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any)
+        .from('transactions')
+        .update(data)
+        .eq('id', id)
+        .eq('user_id', user.id)
+
+    if (error) return { error: error.message }
+
+    revalidatePath('/dashboard')
+    revalidatePath('/transactions')
+    return { success: true }
+}
+
+export async function deleteTransaction(id: string) {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { error: 'Não autenticado' }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any)
+        .from('transactions')
+        .delete()
+        .eq('id', id)
+        .eq('user_id', user.id)
+
+    if (error) return { error: error.message }
+
+    revalidatePath('/dashboard')
+    revalidatePath('/transactions')
+    return { success: true }
+}
+
+export async function toggleTransactionStatus(id: string, currentStatus: string) {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { error: 'Não autenticado' }
+
+    const newStatus = currentStatus === 'pending' ? 'confirmed' : 'pending'
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { error } = await (supabase as any)
+        .from('transactions')
+        .update({ status: newStatus })
+        .eq('id', id)
+        .eq('user_id', user.id)
+
+    if (error) return { error: error.message }
+
+    revalidatePath('/dashboard')
+    revalidatePath('/transactions')
+    return { success: true, newStatus }
+}
